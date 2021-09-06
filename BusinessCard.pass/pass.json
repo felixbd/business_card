@@ -1,0 +1,130 @@
+{
+    "formatVersion": 1,
+    "passTypeIdentifier": "",
+    "teamIdentifier": "",
+    "authenticationToken": "",
+    "serialNumber": "123456",
+    "webServiceURL": "",
+
+    "foregroundColor": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(0, 0, 0)",
+    "organizationName": "Example GmbH & Co. KG",
+    "description": "business card",
+    "logoText": "",
+    "barcode": {
+        "altText": "add my contact (My MeCard)",
+        "message": "MECARD:N:Mustermann,Max Meier;EMAIL:max@mustermann.eu;TEL:9876543210;BDAY:19990526;;",
+        "format": "PKBarcodeFormatQR",
+        "messageEncoding": "iso-8859-1"
+    },
+
+    "generic": {
+        "primaryFields": [
+            {
+                "key": "name",
+                "label": "name",
+                "value": "Max Meier Mustermann"
+            }
+        ],
+        "secondaryFields": [
+            {
+                "key": "email",
+                "label": "email",
+                "value": "max@mustermann.eu"
+            },
+            {
+                "key": "tel-privat",
+                "label": "tel privat",
+                "value": "0123456789"
+            },
+            {
+                "key": "tel-mobile",
+                "label": "tel mobil",
+                "value": "9876543210"
+            }
+        ],
+        "auxiliaryFields": [],
+        "backFields": [
+            {
+                "key": "street",
+                "label": "street",
+                "value": "Example str. 1"
+            },
+            {
+                "key": "post code",
+                "label": "post code",
+                "value": "28205"
+            },
+            {
+                "key": "federal-state",
+                "label": "federal state",
+                "value": "HB"
+            },
+            {
+                "key": "country",
+                "label": "country",
+                "value": "DE"
+            },
+            {
+                "key": "preferred-language",
+                "label": "preferred language",
+                "value": "german, english"
+            },
+            {
+                "key": "date-of-birth-full",
+                "label": "date of birth",
+                "value": "19990526"
+            },
+            {
+                "key": "time-zone",
+                "label": "time zone",
+                "value": "+0100"
+            },
+            {
+                "key": "paypal-account",
+                "label": "PayPal",
+                "value": "@..."
+            },
+            {
+                "key": "github-account",
+                "label": "GitHub",
+                "value": ""
+            },
+            {
+                "key": "instagram-account",
+                "label": "Instagram",
+                "value": ""
+            },
+            {
+                "key": "snapchat-account",
+                "label": "Snapchat",
+                "value": ""
+            },
+            {
+                "key": "twitter-account",
+                "label": "Twitter",
+                "value": ""
+            },
+            {
+                "key": "telegram-account",
+                "label": "Telegram",
+                "value": ""
+            },
+            {
+                "key": "discord-account",
+                "label": "Discord",
+                "value": ""
+            },
+            {
+                "key": "linkedin-account",
+                "label": "LinkedIn",
+                "value": ""
+            },
+            {
+                "key": "lichess-account",
+                "label": "Lichess",
+                "value": ""
+            }
+        ]
+    }
+}
