@@ -629,8 +629,10 @@ to attach them to the start of each source file to most effectively
 state the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.
 
-    <one line to give the program's name and a brief idea of what it does.>
-    Copyright (C) <year>  <name of author>
+    BUSINESS CARD CREATOR (for Apple Wallet)
+    This project contains a simple graphical user interface that
+    you can use to create a digital business card for Apple Wallet.
+    Copyright (C) 2021  Felix Drees
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
@@ -646,6 +648,11 @@ the "copyright" line and a pointer to where the full notice is found.
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 Also add information on how to contact you by electronic and paper mail.
+
+  https://github.com/felix-drees/business_card
+  
+  (just open a issue or something)
+
 
   If your software can interact with users remotely through a computer
 network, you should also make sure that it provides a way for users to
