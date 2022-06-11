@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    html {
+        text-align: center;
+    }
+    body {
+        background-color: black;
+        color: antiquewhite;
+    }
+    footer {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: dimgray;
+      color: antiquewhite;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>business-card</title>
+
+    <!-- PY-SCRIPT -->
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <h1>Create your own business card today!</h1>
+
+    <form action=""><!-- TODO gen a pass.jason from given input with py-script -->
+        <h2>Important data for creating the business carte</h2>
+
+        <h3>required data:</h3>
+        <label for="teamId">team identifier:</label><br>
+        <input type="text" id="teamId" name="teamId" value=""><br>
+        <label for="passTypeId">pass type identifier:</label><br>
+        <input type="text" id="passTypeId" name="passTypeId" value=""><br><br>
+
+        <h3>useful data</h3>
+        <label for="teamId">format version:</label><br><!-- TODO change ids, names and fors -->
+        <input type="text" id="teamId" name="teamId" value=""><br>
+        <label for="teamId">authentication token:</label><br>
+        <input type="text" id="teamId" name="teamId" value=""><br>
+        <label for="teamId">serial number:</label><br>
+        <input type="text" id="teamId" name="teamId" value=""><br>
+        <label for="teamId">web service url:</label><br>
+        <input type="text" id="teamId" name="teamId" value=""><br>
+
+        <h2>Front side of the business card</h2>
+
+        <h3>recommended data:</h3>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <label for="email">email:</label><br>
+        <input type="email" id="email" name="email" value=""><br><br>
+        <label for="tel">tel:</label><br>
+        <input type="tel" id="tel" name="tel" value=""><br><br>
+        <label for="tel-priv">tel priv:</label><br>
+        <input type="tel" id="tel-priv" name="tel-priv" value=""><br><br>
+        <label for="thumbnail-file">thumbnail image:</label><br><!-- this will be the thumbnail image-->
+        <input type="file" id="thumbnail-file" name="thumbnail-file" value=""><br><br>
+
+        <label for="fcolor">foreground color:</label><br>
+        <input type="color" id="fcolor" name="fcolor" value=""><br><br>
+        <label for="bcolor">background color:</label><br>
+        <input type="color" id="bcolor" name="bcolor" value=""><br><br>
+
+        <h3>recommended data for business:</h3>
+        <label for="orga-name">organisation name:</label><br>
+        <input type="text" id="orga-name" name="orga-name" value=""><br><br>
+        <label for="description">description:</label><br>
+        <input type="text" id="description" name="description" value=""><br><br>
+        <label for="logo-text">logo text:</label><br>
+        <input type="text" id="logo-text" name="logo-text" value=""><br><br>
+        <label for="logo-file">logo image:</label><br><!-- this will be the icon image-->
+        <input type="file" id="logo-file" name="logo-file" value=""><br><br>
+
+        <h2>Back side of the business card</h2>
+
+        <h3>optional data:</h3>
+        <label for="address">address:</label><br>
+        <input type="text" id="address" name="address" value=""><br><br>
+        <label for="federal-state-postcode">federal state with post code:</label><br>
+        <input type="text" id="federal-state-postcode" name="federal-state-postcode" value=""><br><br>
+        <label for="country">country:</label><br>
+        <input type="text" id="country" name="country" value=""><br><br>
+        <label for="pref-lang">preferred language:</label><br>
+        <input type="text" id="pref-lang" name="pref-lang" value=""><br><br>
+        <label for="tz">time zone:</label><br>
+        <input type="text" id="tz" name="tz" value="UTC -4"><br><br>
+        <label for="github-acc">github account:</label><br>
+        <input type="text" id="github-acc" name="github-acc" value=""><br><br>
+
+        <!-- TODO add other account -->
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<footer>
+    <p>GNU AGPL v3</p>
+    <p>Copyright (C) 2022  Felix D</p>
+</footer>
+</html>

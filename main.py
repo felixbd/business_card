@@ -3,23 +3,24 @@
 
 """=====================================================================================================================
 
-    BUSINESS CARD CREATOR
-    This project contains a simple graphical user interface that
-    you can use to create a digital business card for Apple Wallet.
-    Copyright (C) 2021  Felix Drees
+BUSINESS CARD CREATOR
+This project contains a simple graphical user interface that
+you can use to create a digital business card for Apple Wallet.
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published
-    by the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+Copyright (C) 2021  Felix Drees
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ====================================================================================================================="""
 
@@ -44,20 +45,18 @@ foreground_color: str = ''
 background_color: str = ''
 
 
-def select_icon_img() -> None:
+def select_icon_img() -> tuple:
     global icon_img_file_name
     icon_img_file_name = askopenfilename()
     with helper.ResizeImageForApplePass(icon_img_file_name, 'logo') as saved_img_file_names:
-        pass
-    return
+        return saved_img_file_names
 
 
-def select_thumbnail_img() -> None:
+def select_thumbnail_img() -> tuple:
     global thumbnail_img_file_name
     thumbnail_img_file_name = askopenfilename()
     with helper.ResizeImageForApplePass(thumbnail_img_file_name, 'thumbnail') as saved_img_file_names:
-        pass
-    return
+        return saved_img_file_names
 
 
 def select_foreground_color() -> None:
@@ -74,10 +73,11 @@ def select_background_color() -> None:
 
 def license_copyright() -> None:
     try:
-        with open("LICENSE", 'r') as license_file:
-            messagebox.showinfo('License and Copyright', license_file.read())
-    except Exception as err:
-        messagebox.showerror("Error", f"LICENSE and Copyright notice not found.\n\nError:\n{err}")
+        # with open("LICENSE", 'r') as license_file:
+        #    messagebox.showinfo('License and Copyright', license_file.read())
+        messagebox.showinfo('License and Copyright', __doc__.removeprefix("="*117).removesuffix("="*117))
+    except Exception as error:
+        messagebox.showerror("Error", f"LICENSE and Copyright notice not found.\n\nError:\n{error}")
     finally:
         return
 
@@ -114,14 +114,14 @@ def create_pass_json(left_entry_dict: dict, middle_entry_dict: dict, right_entry
 
     # GET THE VALUES THE USER ENTERED IN THE GUI
     # left entry
-    org_name, desc, logo_t, f_name, m_name, l_name, email, tel_p, tel_m,\
-    b_day = [val.get() for val in left_entry_dict.values()]
-    # middle emtry
+    org_name, desc, logo_t, f_name, m_name, l_name, email, tel_p, tel_m, b_day = [val.get() for val in
+                                                                                  left_entry_dict.values()]
+    # middle entry
     address, post_code, f_state, country, pref_lang, t_z, git_acc, insta, snap, twitter, telegram, discord, linkedin, \
     lichess, paypal = [val.get() for val in middle_entry_dict.values()]
     # right entry
-    f_version, pass_type_id, team_id, auth_token, serial_num,\
-    web_service_url = [val.get() for val in right_entry_dict.values()]
+    f_version, pass_type_id, team_id, auth_token, serial_num, web_service_url = [val.get() for val in
+                                                                                 right_entry_dict.values()]
 
     # OPEN THE JSON FILE FOR UPDATING THE USER INPUT
     with open(os.path.join("BusinessCard.pass", "pass.json"), 'r') as pass_json_file:
@@ -186,8 +186,8 @@ def main() -> None:
 
     # LEFT FRAME
     left_frame_keys_and_default_texts = {
-        'organisation name': 'Example GmbH & Co. KG', "description": "business card", "logo text": '',
-        'first name': 'Max', 'middle names': '', 'last name': 'Mustermann',
+        'organisation name': '', "description": "business card", "logo text": '',
+        'first name': '', 'middle names': '', 'last name': '',
         'email': '', 'tel privat': '', 'tel mobile': '',
         'date of birth': '19990526'
     }
@@ -203,8 +203,8 @@ def main() -> None:
 
     # MIDDLE FRAME
     middle_frame_keys_and_default_texts = {
-        "street + house num": "Example str. 1", "post code": "28205", "federal state": "HB", "country": "DE",
-        "preferred language": "german, english", "time zone": "+0100", "github account": '', "instagram account": '',
+        "street + house num": "Example str. 1", "post code": "12345", "federal state": "NY", "country": "US",
+        "preferred language": "english", "time zone": "+0100", "github account": '', "instagram account": '',
         "snapchat account": '', "twitter account": '', "telegram account": '', "discord account": '',
         "Linkedin account": '', "Lichess account": '', "PayPal": "@..."
     }

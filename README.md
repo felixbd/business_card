@@ -1,18 +1,30 @@
 # BUSINESS CARD
 
 This project contains a simple GUI that you can use to create a digital business card for Apple Wallet.
+Alternatively you can use the GitHub page of this project. https://felixbd.github.io/business_card/
 
 If you want to make your own digital business card for Apple Wallet, just follow the steps after cloning the project
 ```bash
-git clone https://github.com/felix-drees/business_card.git
+git clone https://github.com/felixbd/business_card.git
 ```
+
+The finished business-card should lock something like this:
+
+![business card in apple wallet](/docs/business-card_in_apple-wallet.png)
 
 ---
 
 ### I. Install the requirements:
->```bash
->pip3 install -r requirements.txt
->```
+
+> Before installing teh requirements it is recommended to create a virtual environment.
+> ```bash
+> python3 -m venv /path/to/dir/main-env && source main-env/bin/activate
+> ```
+
+Install the required python packages (for resizing images)
+```bash
+pip3 install -r requirements.txt
+```
 
 ---
 
@@ -40,11 +52,17 @@ Every pass has a pass type identifier associated with a developer account. Pass 
 
 ### III. Run the dialog:
 
+Run the dialog by using the following command:
+
 ```bash
 python3 main.py
 ```
 
+Alternatively you can use `python main.py` or if the file is marked as executable use `./main.py`.
+
 A dialog will now pop up, which will run you through the process of creating your own business card.
+
+![dialog window](/docs/dialog-window.png)
 
 ---
 

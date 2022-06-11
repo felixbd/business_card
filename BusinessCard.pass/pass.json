@@ -8,12 +8,12 @@
 
     "foregroundColor": "rgb(255, 255, 255)",
     "backgroundColor": "rgb(0, 0, 0)",
-    "organizationName": "Example GmbH & Co. KG",
+    "organizationName": "Test company",
     "description": "business card",
     "logoText": "",
     "barcode": {
         "altText": "add my contact (My MeCard)",
-        "message": "MECARD:N:Mustermann,Max Meier;EMAIL:max@mustermann.eu;TEL:9876543210;BDAY:19990526;;",
+        "message": "MECARD:N:Lname,Fname;EMAIL:a@b.c;TEL:9876543210;BDAY:19990526;;",
         "format": "PKBarcodeFormatQR",
         "messageEncoding": "iso-8859-1"
     },
@@ -23,14 +23,14 @@
             {
                 "key": "name",
                 "label": "name",
-                "value": "Max Meier Mustermann"
+                "value": "Your Name"
             }
         ],
         "secondaryFields": [
             {
                 "key": "email",
                 "label": "email",
-                "value": "max@mustermann.eu"
+                "value": "a@b.c"
             },
             {
                 "key": "tel-privat",
@@ -53,22 +53,22 @@
             {
                 "key": "post code",
                 "label": "post code",
-                "value": "28205"
+                "value": "12345"
             },
             {
                 "key": "federal-state",
                 "label": "federal state",
-                "value": "HB"
+                "value": "NY"
             },
             {
                 "key": "country",
                 "label": "country",
-                "value": "DE"
+                "value": "US"
             },
             {
                 "key": "preferred-language",
                 "label": "preferred language",
-                "value": "german, english"
+                "value": "english"
             },
             {
                 "key": "date-of-birth-full",
