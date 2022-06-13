@@ -1,20 +1,37 @@
 # BUSINESS CARD
 
-This project contains a simple GUI that you can use to create a digital business card for Apple Wallet.
-Alternatively you can use the GitHub page of this project. https://felixbd.github.io/business_card/
+This project will walk you through the process of creating your very owen business card for Apple Wallet.
 
-If you want to make your own digital business card for Apple Wallet, just follow the steps after cloning the project
+> ⚠️ Please note that you need access to an Apple developer account inorder to follow this guide.
+
+The finished business card should lock something like this:
+
+![business card in apple wallet](/docs/business-card-in-apple-wallet.png)
+
+---
+
+## Step 1. Start by cloning this repository.
+
 ```bash
 git clone https://github.com/felixbd/business_card.git
 ```
 
-The finished business-card should lock something like this:
+---
 
-![business card in apple wallet](/docs/business-card_in_apple-wallet.png)
+## Step 2. Make your business card unique
+
+Modify the jason file `BusinessCard.pass/pass.json` inorder to display your one values.
+
+> ⚠️ Please note that every Apple Wallet card has to have a `passTypeIdentifier` and  `teamIdentifier`.
+> [How to get a passTypeIdentifier and a teamIdentifier?](#appendix-i-get-a-pass-type-identifier-and-team-id)
 
 ---
 
-### I. Install the requirements:
+## Step 3. Install the requirements:
+
+Before we can compress and sign the `BusinessCard.pass` folder, we need to add the thumbnail image and the logo image.
+Since these images need to be scaled to serve multiple Apple devices, and therefore need to follow a strict naming
+convention we will use a small Python script to simplify this process.
 
 > Before installing teh requirements it is recommended to create a virtual environment.
 > ```bash
@@ -28,45 +45,19 @@ pip3 install -r requirements.txt
 
 ---
 
-### II. Get a Pass Type Identifier and Team ID
+## Step 4. Add images
 
-Every pass has a pass type identifier associated with a developer account. Pass type identifiers are managed in Member Center by a team admin. To build this pass, request and configure a pass type identifier. (You can’t use the pass type identifier that is already in the pass because it isn’t associated with your developer account.)
-
-#### To register a pass type identifier, do the following:
-
-  1. In [Certificates, Identifiers & Profiles](http://developer.apple.com/account), select Identifiers.
-  2. Under Identifiers, select Pass Type IDs.
-  3. Click the plus (+) button.
-  4. Enter the description and pass type identifier, and click Submit.
-
-#### To find your Team ID, do the following:
-
-  1. Open Keychain Access, and select your certificate.
-  2. Select File > Get Info, and find the Organizational Unit section under Details. This is your Team ID.
-  3. The pass type identifier appears in the certificate under the User ID section.
-
->##### Note
->You can also find your Team ID by looking at your organization profile in [Member Center](https://developer.apple.com/membercenter/).
-
----
-
-### III. Run the dialog:
-
-Run the dialog by using the following command:
+Simply call teh `businesscard-imager.py` python script with the parameters `-t` or `--thumbnail` and `-l` or `--logo` with full file path.
 
 ```bash
-python3 main.py
+python3 businesscard-imager.py -t /home/user/images/my-thumbnail.png -i /home/user/images/my-logo.png
 ```
 
-Alternatively you can use `python main.py` or if the file is marked as executable use `./main.py`.
-
-A dialog will now pop up, which will run you through the process of creating your own business card.
-
-![dialog window](/docs/dialog-window.png)
+This script will auto resize the images and will write the resized images with the correct name in the `BusinessCard.pass` directory.
 
 ---
 
-### IV. Signing and Compressing the Pass
+## Step 5. Signing and Compressing the Pass
 
 #### To download your pass signing certificate, do the following:
 
@@ -93,10 +84,34 @@ cd ~/Documents
 ./signpass -p BusinessCard.pass
 ```
 
-These commands create a signed and compressed pass named `BusinessCard.pkpass` in the Documents folder. If the signpass command fails, make sure you are using your correct pass type identifier and check that the `pass.json` file contains valid JSON. 
+These commands create a signed and compressed pass named `BusinessCard.pkpass` in the Documents folder.
+If the signpass command fails, make sure you are using your correct pass type identifier and check that the `pass.json` file contains valid JSON. 
 
 ---
+---
 
+### Appendix I. Get a Pass Type Identifier and Team ID
+
+Every pass has a pass type identifier associated with a developer account. Pass type identifiers are managed in Member Center by a team admin.
+To build this pass, request and configure a pass type identifier. (You can’t use the pass type identifier that is already in the pass because it isn’t associated with your developer account.)
+
+#### To register a pass type identifier, do the following:
+
+  1. In [Certificates, Identifiers & Profiles](http://developer.apple.com/account), select Identifiers.
+  2. Under Identifiers, select Pass Type IDs.
+  3. Click the plus (+) button.
+  4. Enter the description and pass type identifier, and click Submit.
+
+#### To find your Team ID, do the following:
+
+  1. Open Keychain Access, and select your certificate.
+  2. Select File > Get Info, and find the Organizational Unit section under Details. This is your Team ID.
+  3. The pass type identifier appears in the certificate under the User ID section.
+
+>##### Note
+>You can also find your Team ID by looking at your organization profile in [Member Center](https://developer.apple.com/membercenter/).
+
+---
 
 ## Info:
 - [Getting Started by Apple](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/PassKit_PG/index.html#//apple_ref/doc/uid/TP40012195-CH1-SW1)

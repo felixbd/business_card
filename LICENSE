@@ -630,8 +630,6 @@ state the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.
 
     BUSINESS CARD CREATOR (for Apple Wallet)
-    This project contains a simple graphical user interface that
-    you can use to create a digital business card for Apple Wallet.
     Copyright (C) 2021  Felix Drees
 
     This program is free software: you can redistribute it and/or modify
