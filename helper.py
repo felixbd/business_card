@@ -25,8 +25,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
 from typing import Union, Any
-
 import tkinter as tk
+
 from PIL import Image as pil_img
 
 

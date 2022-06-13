@@ -26,13 +26,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
 import json
-
-import helper
-
 import tkinter as tk
 from tkinter import messagebox
 from tkinter.filedialog import askopenfilename
 from tkinter.colorchooser import askcolor
+
+import helper
+
 
 __version__: str = "1.1.0"
 

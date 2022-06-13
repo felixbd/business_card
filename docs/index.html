@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <style>
     html {
         text-align: center;
@@ -8,6 +7,9 @@
     body {
         background-color: black;
         color: antiquewhite;
+    }
+    input {
+        background-color: dimgray;
     }
     footer {
       left: 0;
@@ -17,7 +19,6 @@
       color: antiquewhite;
     }
 </style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -26,30 +27,34 @@
     <title>business-card</title>
 
     <!-- PY-SCRIPT -->
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <!-- py-env>
+        - PIL
+    </py-env -->
+    <!-- PY-SCRIPT -->
 </head>
 <body>
     <h1>Create your own business card today!</h1>
 
-    <form action=""><!-- TODO gen a pass.jason from given input with py-script -->
+    <form onsubmit="return false">
         <h2>Important data for creating the business carte</h2>
 
         <h3>required data:</h3>
         <label for="teamId">team identifier:</label><br>
-        <input type="text" id="teamId" name="teamId" value=""><br>
+        <input type="text" id="teamId" name="teamId" value="" required><br>
         <label for="passTypeId">pass type identifier:</label><br>
-        <input type="text" id="passTypeId" name="passTypeId" value=""><br><br>
+        <input type="text" id="passTypeId" name="passTypeId" value="" required><br><br>
 
         <h3>useful data</h3>
-        <label for="teamId">format version:</label><br><!-- TODO change ids, names and fors -->
-        <input type="text" id="teamId" name="teamId" value=""><br>
-        <label for="teamId">authentication token:</label><br>
-        <input type="text" id="teamId" name="teamId" value=""><br>
-        <label for="teamId">serial number:</label><br>
-        <input type="text" id="teamId" name="teamId" value=""><br>
-        <label for="teamId">web service url:</label><br>
-        <input type="text" id="teamId" name="teamId" value=""><br>
+        <label for="f-version">format version:</label><br>
+        <input type="text" id="f-version" name="f-version" value=""><br>
+        <label for="auth-token">authentication token:</label><br>
+        <input type="text" id="auth-token" name="auth-token" value=""><br>
+        <label for="serial-number">serial number:</label><br>
+        <input type="text" id="serial-number" name="serial-number" value=""><br>
+        <label for="web-service-url">web service url:</label><br>
+        <input type="text" id="web-service-url" name="web-service-url" value=""><br>
 
         <h2>Front side of the business card</h2>
 
@@ -66,11 +71,10 @@
         <input type="tel" id="tel-priv" name="tel-priv" value=""><br><br>
         <label for="thumbnail-file">thumbnail image:</label><br><!-- this will be the thumbnail image-->
         <input type="file" id="thumbnail-file" name="thumbnail-file" value=""><br><br>
-
         <label for="fcolor">foreground color:</label><br>
-        <input type="color" id="fcolor" name="fcolor" value=""><br><br>
+        <input type="color" id="fcolor" name="fcolor" value="#FFFFFF"><br><br>
         <label for="bcolor">background color:</label><br>
-        <input type="color" id="bcolor" name="bcolor" value=""><br><br>
+        <input type="color" id="bcolor" name="bcolor" value="#000000"><br><br>
 
         <h3>recommended data for business:</h3>
         <label for="orga-name">organisation name:</label><br>
@@ -97,11 +101,48 @@
         <input type="text" id="tz" name="tz" value="UTC -4"><br><br>
         <label for="github-acc">github account:</label><br>
         <input type="text" id="github-acc" name="github-acc" value=""><br><br>
+        <!-- TODO add other accounts (YouTube, Linkedin etc.) -->
 
-        <!-- TODO add other account -->
-
-        <input type="submit" value="Submit">
+        <input pys-onClick="submit_action" type="submit" id="btn-form" value="Submit" class="button"><br>
     </form>
+
+    <p id="output"></p><br>
+<py-script>
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def submit_action(*args, **kwargs) -> None:
+    """ this function will get the values from the form the user just entert """
+
+    # get the values form all elements
+    values_required = get_required_data()
+    values_useful = get_useful_data()
+    values_recommended = get_recommended_data()
+    values_recommended_bs = get_recommended_data_business()
+    values_optional = get_optional_data()
+
+    oe = Element("output")
+    oe.write(values_required + values_useful + values_recommended + values_recommended_bs + values_optional)
+
+def get_required_data() -> list:
+    
+    return [Element(element_id).value for element_id in "teamId passTypeId".split()]
+
+def get_useful_data() -> list:
+
+    return [Element(element_id).value for element_id in "f-version auth-token serial-number web-service-url".split()]
+
+def get_recommended_data() -> list:
+    return [Element(element_id).value for element_id in "fname lname email tel tel-priv thumbnail-file fcolor bcolor".split()]
+
+def get_recommended_data_business() -> list:
+    return [Element(element_id).value for element_id in "orga-name description logo-text logo-file".split()]
+
+def get_optional_data() -> list:
+    return [Element(element_id).value for element_id in "address federal-state-postcode country pref-lang tz github-acc".split()]
+
+</py-script>
+
 </body>
 <footer>
     <p>GNU AGPL v3</p>
